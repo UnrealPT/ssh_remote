@@ -1,0 +1,3 @@
+1 - restructure 'commands' json dict and the iteration in the exec_cmd()
+2 - docstring exec_cmd()
+3 - change create_logfile() to zip files after closing them
