@@ -68,18 +68,15 @@ def open_ssh(hostname, username, password):
 def exec_cmd():
     try:
         for host in hostDict:
-            for cmd in cmdDict:
-                if host == cmd:
-                    targetHost = hostDict[host]
-                    command = cmdDict[cmd]
-                    connection = open_ssh(**targetHost)
-                    stdin, stdout, stderr = connection.exec_command(command)
-                    output = stdout.read().decode('utf-8')
-                    create_logfile(host, output)
+            output = ''
+            connection = open_ssh(**hostDict[host])
+            for cmd in hostDict[host]['commands']:
+                stdin, stdout, stderr = connection.exec_command(cmdDict[cmd])
+                output += stdout.read().decode('utf-8')
+            create_logfile(host, output)
+            connection.close()
     except Exception as e:
         print(e)
-    finally:
-        connection.close()
 
 
 exec_cmd()
