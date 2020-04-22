@@ -40,7 +40,7 @@ cmdDict = parse_json('health_check')
 hostDict = parse_json('hosts_info')
 
 
-def open_ssh(hostname, username, password):
+def open_ssh(hostname, username, password, commands):
     """Uses Paramiko interface to open an SSH session, through port 22, with the specified host address, username / password and returns the established connection. Known ssh host keys are loaded, if the key is new, the policy is set to add that key.
     
     Parameters:
