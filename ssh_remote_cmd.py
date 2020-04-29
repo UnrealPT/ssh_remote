@@ -68,6 +68,12 @@ def open_ssh(hostname, username, password, commands):
 
 
 def exec_cmd():
+    """Main function. 
+    Iterates hosts(keys) in hostDict and opens an ssh tunnel to them.
+    For each host there is a sub dictionary called "commands" whom are iterated
+    and executed accordingly. After command execution, the output is saved
+    to a file with the host name, date and in .txt format. Finally the ssh
+    connection is closed.    """    
     try:
         for host in hostDict:
             output = ''
