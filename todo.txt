@@ -1,3 +1,2 @@
 1 - exec_cmd() - save output from standerr
-2 - docstring exec_cmd()
-3 - change create_logfile() to zip files after closing them
+2 - change create_logfile() to zip files after closing them
